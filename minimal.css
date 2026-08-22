@@ -1,0 +1,662 @@
+/* Premium clean homepage */
+
+:root {
+  --paper: #f6f3ee;
+  --ink: #1a1714;
+  --gold: #b08d57;
+}
+
+html,
+body {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.header {
+  background: #f6f3ee;
+  backdrop-filter: none;
+  border-bottom: 1px solid rgba(176, 141, 87, 0.22);
+}
+
+.lux-kicker {
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.lux-kicker--light {
+  color: #e8d5a8;
+}
+
+.lux-head {
+  max-width: 40rem;
+  padding: 0 1.5rem 2.5rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.lux-head h2,
+.lux-split__copy h2,
+.lux-visit__panel h2,
+.lux-bridal__copy h2 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.lux-head h2 {
+  font-size: clamp(2rem, 3.6vw, 3rem);
+}
+
+.btn--ghost {
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  color: #fff;
+  background: transparent;
+}
+
+.btn--ghost:hover {
+  background: #fff;
+  color: #111;
+}
+
+img {
+  height: auto;
+}
+
+/* Hero */
+.lux-hero {
+  position: relative;
+  min-height: calc(100vh - var(--header-h));
+  display: grid;
+  place-items: end start;
+  overflow: hidden;
+  color: #fff;
+}
+
+.lux-hero__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: none;
+}
+
+.lux-hero__veil {
+  position: absolute;
+  inset: 0;
+  background:
+    rgba(12, 10, 8, 0.22),
+    linear-gradient(transparent 45%, rgba(12, 10, 8, 0.4));
+}
+
+.lux-hero__copy {
+  position: relative;
+  z-index: 1;
+  padding: 0 8vw 7vh;
+  max-width: 42rem;
+}
+
+.lux-hero h1 {
+  font-size: clamp(3.4rem, 8vw, 7rem);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  line-height: 0.92;
+  margin: 0 0 0.4rem;
+}
+
+.lux-hero__sub {
+  font-family: var(--font-heading);
+  font-size: clamp(1.3rem, 2.4vw, 1.85rem);
+  font-style: italic;
+  font-weight: 400;
+  opacity: 0.92;
+  margin-bottom: 1.1rem;
+}
+
+.lux-hero__lede {
+  font-weight: 300;
+  max-width: 26rem;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.lux-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+/* Intro strip */
+.lux-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid rgba(176, 141, 87, 0.25);
+  background: #fff;
+}
+
+.lux-strip p {
+  padding: 1.6rem 1.4rem;
+  text-align: center;
+  border-right: 1px solid rgba(176, 141, 87, 0.2);
+}
+
+.lux-strip p:last-child {
+  border-right: 0;
+}
+
+.lux-strip strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.lux-strip span {
+  font-size: 0.78rem;
+  color: #6b645c;
+  letter-spacing: 0.04em;
+}
+
+/* About — Jyoti */
+.lux-about {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 5.5rem 1.5rem;
+}
+
+.lux-about__photos {
+  position: relative;
+  min-height: 580px;
+}
+
+.lux-about__main {
+  margin: 0;
+  width: 78%;
+  height: 580px;
+  overflow: hidden;
+}
+
+.lux-about__main img,
+.lux-about__inset img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lux-about__main img {
+  object-position: 55% 20%;
+}
+
+.lux-about__inset {
+  position: absolute;
+  right: 0;
+  bottom: -1.2rem;
+  width: 48%;
+  height: 300px;
+  margin: 0;
+  overflow: hidden;
+  border: 10px solid var(--paper);
+  box-shadow: 0 18px 50px rgba(26, 23, 20, 0.12);
+}
+
+.lux-about__inset img {
+  object-position: center 20%;
+}
+
+.lux-about__copy h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  font-weight: 400;
+  margin: 0 0 0.35rem;
+}
+
+.lux-about__role {
+  color: var(--gold);
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+
+.lux-about__copy > p {
+  color: #5c564f;
+  font-weight: 300;
+  max-width: 28rem;
+  margin-bottom: 0.9rem;
+}
+
+.lux-about__handle {
+  font-size: 0.82rem;
+  color: var(--ink);
+  margin: 1.1rem 0 1.6rem !important;
+}
+
+/* Featured tiles */
+.lux-featured {
+  padding: 5.5rem 1.5rem 2rem;
+}
+
+.lux-featured__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.7rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.lux-tile {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  min-height: 420px;
+  color: #fff;
+}
+
+.lux-tile--tall {
+  min-height: 560px;
+}
+
+.lux-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  transition: transform 0.8s var(--ease);
+}
+
+.lux-tile:hover img {
+  transform: scale(1.06);
+}
+
+.lux-tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 45%, rgba(0, 0, 0, 0.7));
+}
+
+.lux-tile span {
+  position: absolute;
+  left: 1.4rem;
+  right: 1.4rem;
+  bottom: 1.4rem;
+  z-index: 1;
+  font-size: 0.85rem;
+  font-weight: 300;
+}
+
+.lux-tile em {
+  display: block;
+  font-style: normal;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+  margin-bottom: 0.35rem;
+}
+
+.lux-tile strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 0.2rem;
+}
+
+/* Split editorial */
+.lux-split {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 5.5rem 1.5rem;
+}
+
+.lux-split--flip {
+  direction: rtl;
+}
+
+.lux-split--flip > * {
+  direction: ltr;
+}
+
+.lux-split__photos {
+  position: relative;
+  min-height: 560px;
+}
+
+.lux-split__main {
+  margin: 0;
+  width: 78%;
+  height: 560px;
+  overflow: hidden;
+}
+
+.lux-split__main img,
+.lux-split__inset img,
+.lux-visit__photo img,
+.lux-bridal img,
+.lux-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lux-split__inset {
+  position: absolute;
+  right: 0;
+  bottom: -1.5rem;
+  width: 46%;
+  height: 280px;
+  margin: 0;
+  overflow: hidden;
+  border: 10px solid var(--paper);
+  box-shadow: 0 18px 50px rgba(26, 23, 20, 0.12);
+}
+
+.lux-split__copy h2 {
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  margin: 0 0 1rem;
+}
+
+.lux-split__copy > p {
+  color: #5c564f;
+  font-weight: 300;
+  max-width: 28rem;
+  margin-bottom: 1.6rem;
+}
+
+.lux-menu {
+  max-width: 26rem;
+  margin-bottom: 2rem;
+}
+
+.lux-menu li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(176, 141, 87, 0.28);
+  font-size: 0.95rem;
+}
+
+.lux-menu li span:last-child {
+  color: #8a8178;
+  font-weight: 300;
+}
+
+/* Bridal */
+.lux-bridal {
+  position: relative;
+  height: 78vh;
+  min-height: 480px;
+  overflow: hidden;
+  display: grid;
+  align-items: end;
+}
+
+.lux-bridal img {
+  position: absolute;
+  inset: 0;
+  object-position: center 25%;
+}
+
+.lux-bridal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 35%, rgba(10, 8, 6, 0.72));
+}
+
+.lux-bridal__copy {
+  position: relative;
+  z-index: 1;
+  padding: 0 8vw 8vh;
+  max-width: 38rem;
+  color: #fff;
+}
+
+.lux-bridal__copy h2 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  margin: 0 0 1.5rem;
+}
+
+/* Gallery */
+.lux-gallery {
+  padding: 5.5rem 1.5rem;
+}
+
+.lux-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.lux-gallery figure {
+  margin: 0;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+}
+
+.lux-gallery img {
+  transition: transform 0.7s var(--ease);
+}
+
+.lux-gallery figure:hover img {
+  transform: scale(1.05);
+}
+
+/* Quote */
+.lux-quote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 4.5rem 1.5rem 5.5rem;
+  text-align: left;
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+.lux-quote img {
+  width: 92px;
+  height: 92px;
+  object-fit: cover;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.lux-quote p {
+  font-family: var(--font-heading);
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: 0.7rem;
+}
+
+.lux-quote cite {
+  font-style: normal;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8a8178;
+}
+
+/* Visit */
+.lux-visit {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  max-width: 1280px;
+  margin: 0 auto 4rem;
+  background: #fff;
+}
+
+.lux-visit__photo {
+  margin: 0;
+  min-height: 640px;
+  overflow: hidden;
+}
+
+.lux-map {
+  width: 100%;
+  height: 100%;
+  min-height: 640px;
+  border: 0;
+  display: block;
+}
+
+.lux-visit__panel {
+  padding: 3.5rem 3rem;
+}
+
+.lux-visit address {
+  font-style: normal;
+  margin: 0 0 0.8rem;
+  line-height: 1.7;
+}
+
+.lux-hours {
+  color: #6b645c;
+  margin: 0.4rem 0 1.6rem;
+}
+
+.lux-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.lux-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8a8178;
+  margin-top: 0.65rem;
+}
+
+.lux-form input,
+.lux-form select,
+.lux-form textarea {
+  border: 0;
+  border-bottom: 1px solid rgba(26, 23, 20, 0.18);
+  border-radius: 0;
+  padding: 0.55rem 0;
+  background: transparent;
+  font-size: 0.95rem;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.lux-form input:focus,
+.lux-form select:focus,
+.lux-form textarea:focus {
+  outline: none;
+  border-bottom-color: var(--gold);
+}
+
+.lux-form .btn {
+  margin-top: 1.4rem;
+  align-self: flex-start;
+}
+
+.footer {
+  background: #fff;
+  border-top: 1px solid rgba(176, 141, 87, 0.22);
+}
+
+.footer__grid {
+  display: grid !important;
+  grid-template-columns: 1.4fr 1fr 1fr !important;
+  gap: 2.5rem;
+  padding: 3rem 0 2rem;
+}
+
+.footer__news,
+.float-btn--top {
+  display: none;
+}
+
+@media (max-width: 980px) {
+  .lux-strip,
+  .lux-featured__grid,
+  .lux-about,
+  .lux-split,
+  .lux-split--flip,
+  .lux-gallery__grid,
+  .lux-visit,
+  .footer__grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .lux-tile,
+  .lux-tile--tall {
+    min-height: 380px;
+  }
+
+  .lux-about__photos,
+  .lux-split__photos {
+    min-height: 420px;
+  }
+
+  .lux-about__main {
+    width: 100%;
+    height: 440px;
+  }
+
+  .lux-about__inset {
+    width: 46%;
+    height: 190px;
+  }
+
+  .lux-split__main {
+    width: 100%;
+    height: 420px;
+  }
+
+  .lux-split__inset {
+    width: 42%;
+    height: 180px;
+    bottom: -0.8rem;
+  }
+
+  .lux-visit__photo {
+    min-height: 360px;
+  }
+
+  .lux-visit__panel {
+    padding: 2rem 1.4rem 3rem;
+  }
+
+  .lux-hero__copy,
+  .lux-bridal__copy {
+    padding-left: 1.4rem;
+    padding-right: 1.4rem;
+  }
+
+  .lux-gallery__grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .lux-quote {
+    flex-direction: column;
+    text-align: center;
+  }
+}

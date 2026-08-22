@@ -1,0 +1,398 @@
+/* Academy — institute landing, white / minimal (LA BEAUTÉ) */
+
+.academy-page {
+  --paper: #f6f3ee;
+  --ink: #1a1714;
+  --gold: #b08d57;
+  --muted: #5c564f;
+  --line: rgba(176, 141, 87, 0.25);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.academy-page .footer {
+  background: #fff;
+  border-top: 1px solid var(--line);
+}
+
+.academy-page .footer__grid {
+  display: grid !important;
+  grid-template-columns: 1.4fr 1fr 1fr !important;
+}
+
+.ac-wrap {
+  width: min(1120px, calc(100% - 2.4rem));
+  margin-inline: auto;
+}
+
+.ac-section {
+  padding: 5rem 0;
+}
+
+.ac-kicker {
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 0.85rem;
+}
+
+.ac-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.6vw, 3.1rem);
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 0 0 1rem;
+}
+
+.ac-lead {
+  color: var(--muted);
+  font-weight: 300;
+  max-width: 38rem;
+  line-height: 1.75;
+  margin-bottom: 0.9rem;
+}
+
+.ac-head {
+  max-width: 38rem;
+  margin-bottom: 2.4rem;
+}
+
+.ac-head--center {
+  text-align: center;
+  margin-inline: auto;
+}
+
+.lk-hero {
+  padding: 3.5rem 0 4.5rem;
+  background:
+    linear-gradient(90deg, rgba(246, 243, 238, 0.92) 42%, rgba(246, 243, 238, 0.55)),
+    url("assets/images/makeup-class.jpg") center / cover no-repeat;
+}
+
+.lk-hero__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.lk-hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.3rem, 4.6vw, 4rem);
+  font-weight: 400;
+  line-height: 1.1;
+  margin: 0 0 1rem;
+}
+
+.lk-ticks {
+  margin-top: 1.4rem;
+}
+
+.lk-ticks li {
+  position: relative;
+  padding: 0.38rem 0 0.38rem 1.3rem;
+  font-size: 0.95rem;
+}
+
+.lk-ticks li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+.lk-form {
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 1.6rem 1.4rem 1.5rem;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.lk-form h2,
+.lk-form h3 {
+  font-family: var(--font-heading);
+  font-size: 1.7rem;
+  font-weight: 400;
+  margin: 0 0 0.4rem;
+}
+
+.lk-form label {
+  display: grid;
+  gap: 0.3rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8a8178;
+}
+
+.lk-form input,
+.lk-form select {
+  border: 0;
+  border-bottom: 1px solid rgba(26, 23, 20, 0.16);
+  background: transparent;
+  padding: 0.55rem 0;
+  color: var(--ink);
+  font-size: 0.95rem;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.lk-ok {
+  color: #2d6a3e;
+  font-size: 0.85rem;
+}
+
+.lk-about {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.lk-about img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+}
+
+.lk-courses {
+  background: #fff;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.lk-course {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 2.4rem;
+  align-items: center;
+  padding: 2.8rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.lk-course:last-child {
+  border-bottom: 0;
+}
+
+.lk-course--flip {
+  direction: rtl;
+}
+
+.lk-course--flip > * {
+  direction: ltr;
+}
+
+.lk-course img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+}
+
+.lk-course h3 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 400;
+  margin-bottom: 0.7rem;
+}
+
+.lk-course p {
+  color: var(--muted);
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.lk-course h4 {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.55rem;
+}
+
+.lk-course ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.25rem 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.lk-course li {
+  font-size: 0.9rem;
+  padding-left: 0.9rem;
+  position: relative;
+}
+
+.lk-course li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+.lk-meta {
+  font-size: 0.82rem !important;
+  color: var(--ink) !important;
+  font-weight: 400 !important;
+}
+
+.lk-work {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.7rem;
+}
+
+.lk-work img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.lk-place {
+  background: #fff;
+  border-top: 1px solid var(--line);
+}
+
+.lk-brands {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1.4rem;
+}
+
+.lk-brands span {
+  border: 1px solid var(--line);
+  padding: 0.5rem 0.9rem;
+  font-size: 0.82rem;
+  background: var(--paper);
+}
+
+.ac-card {
+  background: #fff;
+  border: 1px solid var(--line);
+}
+
+.ac-faq {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.ac-faq__btn {
+  width: 100%;
+  text-align: left;
+  padding: 1.05rem 1.15rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 1rem;
+  background: none;
+  border: 0;
+  color: var(--ink);
+}
+
+.ac-faq__btn::after {
+  content: "+";
+  color: var(--gold);
+}
+
+.ac-faq__item.is-open .ac-faq__btn::after {
+  content: "–";
+}
+
+.ac-faq__panel {
+  display: none;
+  padding: 0 1.15rem 1.1rem;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+.ac-faq__item.is-open .ac-faq__panel {
+  display: block;
+}
+
+.lk-quotes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.lk-quotes article {
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 1.5rem 1.3rem;
+}
+
+.lk-quotes p {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.lk-quotes cite {
+  font-style: normal;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8a8178;
+}
+
+.lk-help {
+  background: #fff;
+  border-top: 1px solid var(--line);
+}
+
+.lk-help__grid {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.lk-map {
+  width: 100%;
+  height: 360px;
+  border: 0;
+  margin: 1.4rem 0 1.6rem;
+  display: block;
+}
+
+.lk-loc address {
+  font-style: normal;
+  line-height: 1.7;
+  margin-bottom: 0.8rem;
+}
+
+.lk-loc p {
+  color: var(--muted);
+  margin-bottom: 0.45rem;
+}
+
+@media (max-width: 900px) {
+  .lk-hero__grid,
+  .lk-about,
+  .lk-course,
+  .lk-course--flip,
+  .lk-help__grid,
+  .lk-quotes,
+  .lk-work,
+  .lk-course ul,
+  .academy-page .footer__grid {
+    grid-template-columns: 1fr !important;
+    direction: ltr;
+  }
+
+  .lk-hero {
+    background-image: none;
+    background-color: var(--paper);
+  }
+
+  .lk-about img,
+  .lk-course img {
+    height: 280px;
+  }
+}
