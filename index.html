@@ -37,6 +37,7 @@
   </header>
 
   <div class="nav__panel" id="navMenu">
+    <button class="nav-close" id="navClose" type="button" aria-label="Close menu">×</button>
     <ul class="nav__list">
       <li><a class="nav__link" href="#home">Home</a></li>
       <li><a class="nav__link" href="#about">About</a></li>
@@ -261,16 +262,24 @@
   <script>
     (function () {
       var btn = document.getElementById("navToggle");
+      var closeBtn = document.getElementById("navClose");
       var menu = document.getElementById("navMenu");
       if (!btn || !menu) return;
-      btn.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        var open = menu.classList.toggle("is-open");
+      function setOpen(open) {
+        menu.classList.toggle("is-open", open);
         btn.classList.toggle("is-open", open);
         btn.setAttribute("aria-expanded", open ? "true" : "false");
         document.body.style.overflow = open ? "hidden" : "";
+      }
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        setOpen(!menu.classList.contains("is-open"));
       }, true);
+      closeBtn && closeBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        setOpen(false);
+      });
     })();
   </script>
   <script src="script.js"></script>
