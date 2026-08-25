@@ -33,6 +33,23 @@
   setTimeout(hideLoader, 1200);
 
   /* ------------------------------------------
+     Active Nav Highlight
+     ------------------------------------------ */
+  const sections = $$("main section[id]");
+
+  function highlightNav() {
+    const fromTop = window.scrollY + 120;
+    let current = sections[0]?.id;
+    sections.forEach((sec) => {
+      if (sec.offsetTop <= fromTop) current = sec.id;
+    });
+    $$(".nav__link").forEach((link) => {
+      const href = link.getAttribute("href")?.slice(1);
+      link.classList.toggle("is-active", href === current);
+    });
+  }
+
+  /* ------------------------------------------
      Sticky Navbar + Progress + Back to Top
      ------------------------------------------ */
   function onScroll() {
@@ -86,7 +103,6 @@
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       closeMenu();
-      closeLightbox();
     }
   });
 
@@ -103,23 +119,6 @@
       target.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
-
-  /* ------------------------------------------
-     Active Nav Highlight
-     ------------------------------------------ */
-  const sections = $$("main section[id]");
-
-  function highlightNav() {
-    const fromTop = window.scrollY + 120;
-    let current = sections[0]?.id;
-    sections.forEach((sec) => {
-      if (sec.offsetTop <= fromTop) current = sec.id;
-    });
-    $$(".nav__link").forEach((link) => {
-      const href = link.getAttribute("href")?.slice(1);
-      link.classList.toggle("is-active", href === current);
-    });
-  }
 
   /* ------------------------------------------
      Scroll Reveal
@@ -550,5 +549,158 @@
       }
       drawTrail();
     }
+  }
+
+  /* ------------------------------------------
+     Offers Tab Filtering & Collapsible Items
+     ------------------------------------------ */
+  const tabBtns = $$(".lux-tab-btn");
+  const offerCards = $$(".lux-offer-card");
+
+  if (tabBtns.length && offerCards.length) {
+    // 1. Collapsible List Items inside each Card (Show 4 items initially)
+    const ITEM_LIMIT = 4;
+    offerCards.forEach((card) => {
+      const list = card.querySelector(".lux-offer-card__list");
+      if (!list) return;
+
+      const items = Array.from(list.querySelectorAll("li"));
+      if (items.length > ITEM_LIMIT) {
+        items.forEach((item, index) => {
+          if (index >= ITEM_LIMIT) {
+            item.classList.add("is-extra-item");
+          }
+        });
+
+        const toggleBtn = document.createElement("button");
+        toggleBtn.type = "button";
+        toggleBtn.className = "lux-card-toggle";
+        toggleBtn.innerHTML = `<span>View All (${items.length} services)</span> <i class="chevron">▼</i>`;
+
+        toggleBtn.addEventListener("click", () => {
+          const isExpanded = card.classList.toggle("is-expanded");
+          if (isExpanded) {
+            toggleBtn.innerHTML = `<span>Show Less</span> <i class="chevron">▲</i>`;
+          } else {
+            toggleBtn.innerHTML = `<span>View All (${items.length} services)</span> <i class="chevron">▼</i>`;
+          }
+        });
+
+        const footer = card.querySelector(".lux-offer-card__footer");
+        if (footer) {
+          card.insertBefore(toggleBtn, footer);
+        } else {
+          card.appendChild(toggleBtn);
+        }
+      }
+    });
+
+    // 2. Tab Filter Handler
+    tabBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const filter = btn.getAttribute("data-filter") || "all";
+        const filterArr = filter.split(",").map((s) => s.trim());
+
+        tabBtns.forEach((b) => b.classList.remove("is-active"));
+        btn.classList.add("is-active");
+
+        let visibleCards = [];
+        offerCards.forEach((card) => {
+          const category = card.getAttribute("data-category");
+          if (filter === "all" || filterArr.includes(category)) {
+            card.classList.remove("is-hidden");
+            visibleCards.push(card);
+          } else {
+            card.classList.add("is-hidden");
+          }
+        });
+
+        offerCards.forEach((card) => {
+          if (visibleCards.length === 1 && visibleCards[0] === card) {
+            card.classList.add("is-single");
+          } else {
+            card.classList.remove("is-single");
+          }
+        });
+
+        applyCardLimit();
+      });
+    });
+
+    // 3. Grid Truncation ("View All Offers" for "All Offers" Tab)
+    const CARD_LIMIT = 6;
+    const grid = document.querySelector(".lux-offers__grid");
+
+    if (grid && offerCards.length > CARD_LIMIT) {
+      const gridToggleWrap = document.createElement("div");
+      gridToggleWrap.className = "lux-offers__grid-toggle-wrap";
+
+      const gridToggleBtn = document.createElement("button");
+      gridToggleBtn.type = "button";
+      gridToggleBtn.className = "lux-grid-toggle-btn";
+      gridToggleBtn.textContent = `View All Offers (${offerCards.length} Categories)`;
+
+      gridToggleWrap.appendChild(gridToggleBtn);
+      grid.after(gridToggleWrap);
+
+      let isGridExpanded = false;
+
+      function applyCardLimit() {
+        const activeTab = document.querySelector(".lux-tab-btn.is-active");
+        const currentFilter = activeTab ? activeTab.getAttribute("data-filter") : "all";
+
+        if (currentFilter === "all" && !isGridExpanded) {
+          offerCards.forEach((card, idx) => {
+            if (idx >= CARD_LIMIT) {
+              card.classList.add("is-hidden-by-limit");
+            } else {
+              card.classList.remove("is-hidden-by-limit");
+            }
+          });
+          gridToggleWrap.style.display = "flex";
+        } else {
+          offerCards.forEach((card) => card.classList.remove("is-hidden-by-limit"));
+          if (currentFilter !== "all") {
+            gridToggleWrap.style.display = "none";
+          } else {
+            gridToggleWrap.style.display = "flex";
+          }
+        }
+      }
+
+      gridToggleBtn.addEventListener("click", () => {
+        isGridExpanded = !isGridExpanded;
+        if (isGridExpanded) {
+          gridToggleBtn.textContent = "Show Less Offers";
+        } else {
+          gridToggleBtn.textContent = `View All Offers (${offerCards.length} Categories)`;
+        }
+        applyCardLimit();
+      });
+
+      applyCardLimit();
+    }
+  }
+
+  /* ------------------------------------------
+     Transformations Slider
+     ------------------------------------------ */
+  const transformSlides = $$(".lk-transform__slide");
+  const prevBtn = $("#prevSlide");
+  const nextBtn = $("#nextSlide");
+
+  if (transformSlides.length && prevBtn && nextBtn) {
+    let currentIndex = 0;
+
+    function showSlide(index) {
+      transformSlides.forEach((s) => s.classList.remove("is-active"));
+      if (index < 0) currentIndex = transformSlides.length - 1;
+      else if (index >= transformSlides.length) currentIndex = 0;
+      else currentIndex = index;
+      transformSlides[currentIndex].classList.add("is-active");
+    }
+
+    prevBtn.addEventListener("click", () => showSlide(currentIndex - 1));
+    nextBtn.addEventListener("click", () => showSlide(currentIndex + 1));
   }
 })();

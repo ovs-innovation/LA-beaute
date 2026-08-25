@@ -396,3 +396,540 @@
     height: 280px;
   }
 }
+
+/* ============================================
+   Why Choose Us Section (Clean Luxury Cards)
+   ============================================ */
+.lk-why {
+  background: #ffffff;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 5rem 0;
+}
+
+.lk-why .ac-title {
+  color: var(--ink);
+}
+
+.lk-why .ac-title span.highlight {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.lk-why__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  max-width: 1060px;
+  margin: 2.5rem auto 0;
+}
+
+.lk-why__card {
+  background: #fbf9f6;
+  border: 1px solid rgba(176, 141, 87, 0.24);
+  border-radius: 10px;
+  padding: 1.35rem 1.4rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.lk-why__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(26, 23, 20, 0.08);
+  border-color: var(--gold);
+  background: #ffffff;
+}
+
+.lk-why__info {
+  flex: 1;
+}
+
+.lk-why__info h3 {
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 0.35rem;
+  line-height: 1.3;
+}
+
+.lk-why__info p {
+  font-size: 0.82rem;
+  color: #6b645c;
+  font-weight: 300;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.lk-why__icon {
+  width: 32px;
+  height: 32px;
+  background: #faf5ee;
+  border: 1px solid rgba(176, 141, 87, 0.3);
+  color: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: 0.85rem;
+  margin-top: 0.1rem;
+  transition: all 0.3s ease;
+}
+
+.lk-why__card:hover .lk-why__icon {
+  background: var(--gold);
+  color: #ffffff;
+  border-color: var(--gold);
+}
+
+@media (max-width: 1024px) {
+  .lk-why__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .lk-why__grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* ============================================
+   Who Can Join Section (Matches Existing Site UI)
+   ============================================ */
+.lk-who {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  padding: 5rem 0;
+}
+
+.lk-who .ac-title span.highlight {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.lk-who__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  max-width: 1060px;
+  margin: 2.5rem auto 0;
+}
+
+.lk-who__card {
+  background: #ffffff;
+  border: 1px solid rgba(176, 141, 87, 0.24);
+  border-radius: 10px;
+  padding: 1.5rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+}
+
+.lk-who__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(26, 23, 20, 0.08);
+  border-color: var(--gold);
+}
+
+.lk-who__badge {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.lk-who__card h3 {
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 0.4rem;
+  line-height: 1.3;
+}
+
+.lk-who__card p {
+  font-size: 0.82rem;
+  color: #6b645c;
+  font-weight: 300;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.lk-who__action {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 1024px) {
+  .lk-who__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .lk-who__grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* ============================================
+   Career Opportunities Section (Matches Site UI)
+   ============================================ */
+.lk-careers {
+  background: #ffffff;
+  border-bottom: 1px solid var(--line);
+  padding: 5rem 0;
+}
+
+.lk-careers .ac-title span.highlight {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.lk-careers__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  max-width: 980px;
+  margin: 2.5rem auto 0;
+}
+
+.lk-careers__card {
+  background: #fbf9f6;
+  border: 1px solid rgba(176, 141, 87, 0.24);
+  border-radius: 10px;
+  padding: 1.35rem 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.lk-careers__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(26, 23, 20, 0.08);
+  border-color: var(--gold);
+  background: #ffffff;
+}
+
+.lk-careers__check {
+  width: 28px;
+  height: 28px;
+  background: #faf5ee;
+  border: 1px solid rgba(176, 141, 87, 0.35);
+  color: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: bold;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  transition: all 0.3s ease;
+}
+
+.lk-careers__card:hover .lk-careers__check {
+  background: var(--gold);
+  color: #ffffff;
+  border-color: var(--gold);
+}
+
+.lk-careers__content h3 {
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 0.35rem;
+  line-height: 1.3;
+}
+
+.lk-careers__content p {
+  font-size: 0.82rem;
+  color: #6b645c;
+  font-weight: 300;
+  margin: 0;
+  line-height: 1.45;
+}
+
+@media (max-width: 768px) {
+  .lk-careers__grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* ============================================
+   Our Stars in the Industry Section
+   ============================================ */
+.lk-stars {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  padding: 5rem 0;
+}
+
+.lk-stars .ac-title span.highlight {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.lk-stars__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  max-width: 1120px;
+  margin: 2.5rem auto 0;
+}
+
+.lk-star-card {
+  background: #ffffff;
+  border: 1px solid rgba(176, 141, 87, 0.24);
+  border-radius: 12px;
+  padding: 1.5rem 1.2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.lk-star-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(26, 23, 20, 0.08);
+  border-color: var(--gold);
+}
+
+.lk-star-card__header {
+  margin-bottom: 0.8rem;
+}
+
+.lk-star-card__brand {
+  display: inline-block;
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.lk-star-card__congrats {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.lk-star-card__sub {
+  font-size: 0.7rem;
+  color: #7a736b;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0.2rem 0;
+}
+
+.lk-star-card__company {
+  display: inline-block;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--gold);
+  background: #faf5ee;
+  border: 1px solid rgba(176, 141, 87, 0.3);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  margin-top: 0.2rem;
+}
+
+.lk-star-card__avatar {
+  margin: 0.85rem auto;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  padding: 3px;
+  background: #ffffff;
+}
+
+.lk-star-card__avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.lk-star-card__body h3 {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  margin: 0 0 0.4rem;
+}
+
+.lk-star-card__quote {
+  font-size: 0.76rem;
+  color: #6b645c;
+  font-style: italic;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.lk-stars__action {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 1024px) {
+  .lk-stars__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .lk-stars__grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* ============================================
+   Student Transformations Slider Section
+   ============================================ */
+.lk-transformations {
+  background: #ffffff;
+  border-bottom: 1px solid var(--line);
+  padding: 5rem 0;
+}
+
+.lk-transformations .ac-title span.highlight {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.lk-transform__slider-wrap {
+  position: relative;
+  max-width: 960px;
+  margin: 2.5rem auto 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.lk-transform__track {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 480px;
+  position: relative;
+  overflow: hidden;
+}
+
+.lk-transform__slide {
+  position: absolute;
+  opacity: 0;
+  transform: scale(0.94);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  pointer-events: none;
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  border: 1px solid rgba(176, 141, 87, 0.28);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.lk-transform__slide.is-active {
+  position: relative;
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.lk-transform__slide img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  display: block;
+}
+
+.lk-transform__caption {
+  padding: 1.25rem 1.4rem;
+  background: #ffffff;
+  border-top: 1px solid rgba(176, 141, 87, 0.2);
+  text-align: left;
+}
+
+.lk-transform__caption .badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: #faf5ee;
+  border: 1px solid rgba(176, 141, 87, 0.3);
+  padding: 0.2rem 0.65rem;
+  border-radius: 20px;
+  margin-bottom: 0.4rem;
+}
+
+.lk-transform__caption h4 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0 0 0.2rem;
+}
+
+.lk-transform__caption p {
+  font-size: 0.82rem;
+  color: #6b645c;
+  margin: 0;
+}
+
+.lk-transform__nav {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(176, 141, 87, 0.35);
+  color: var(--gold);
+  font-size: 1.5rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.lk-transform__nav:hover {
+  background: var(--gold);
+  color: #ffffff;
+  border-color: var(--gold);
+  transform: scale(1.08);
+}

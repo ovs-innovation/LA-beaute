@@ -65,6 +65,28 @@
   bindForm("demoForm");
   bindForm("counselForm");
 
+  /* ------------------------------------------
+     Transformations Slider
+     ------------------------------------------ */
+  const transformSlides = $$(".lk-transform__slide");
+  const prevBtn = $("#prevSlide");
+  const nextBtn = $("#nextSlide");
+
+  if (transformSlides.length && prevBtn && nextBtn) {
+    let currentIndex = 0;
+
+    function showSlide(index) {
+      transformSlides.forEach((s) => s.classList.remove("is-active"));
+      if (index < 0) currentIndex = transformSlides.length - 1;
+      else if (index >= transformSlides.length) currentIndex = 0;
+      else currentIndex = index;
+      transformSlides[currentIndex].classList.add("is-active");
+    }
+
+    prevBtn.addEventListener("click", () => showSlide(currentIndex - 1));
+    nextBtn.addEventListener("click", () => showSlide(currentIndex + 1));
+  }
+
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeMenu();
   });
