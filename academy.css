@@ -375,6 +375,9 @@
 @media (max-width: 900px) {
   .lk-hero__grid,
   .lk-about,
+  .lk-faculty__grid,
+  .lk-acadbar,
+  .lk-syllabus__steps,
   .lk-course,
   .lk-course--flip,
   .lk-help__grid,
@@ -392,6 +395,7 @@
   }
 
   .lk-about img,
+  .lk-faculty img,
   .lk-course img {
     height: 280px;
   }
@@ -840,7 +844,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 480px;
+  min-height: 580px;
   position: relative;
   overflow: hidden;
 }
@@ -852,12 +856,12 @@
   transition: opacity 0.45s ease, transform 0.45s ease;
   pointer-events: none;
   width: 100%;
-  max-width: 520px;
+  max-width: 420px;
   background: #ffffff;
   border: 1px solid rgba(176, 141, 87, 0.28);
-  border-radius: 16px;
+  border-radius: 0;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 18px 40px rgba(26, 23, 20, 0.1);
 }
 
 .lk-transform__slide.is-active {
@@ -869,9 +873,11 @@
 
 .lk-transform__slide img {
   width: 100%;
-  height: 380px;
+  height: 480px;
   object-fit: cover;
+  object-position: center top;
   display: block;
+  border-radius: 0;
 }
 
 .lk-transform__caption {
@@ -889,9 +895,9 @@
   color: var(--gold);
   background: #faf5ee;
   border: 1px solid rgba(176, 141, 87, 0.3);
-  padding: 0.2rem 0.65rem;
-  border-radius: 20px;
-  margin-bottom: 0.4rem;
+  padding: 0.22rem 0.55rem;
+  border-radius: 0;
+  margin-bottom: 0.45rem;
 }
 
 .lk-transform__caption h4 {
@@ -911,7 +917,7 @@
 .lk-transform__nav {
   width: 44px;
   height: 44px;
-  border-radius: 50%;
+  border-radius: 0;
   background: #ffffff;
   border: 1px solid rgba(176, 141, 87, 0.35);
   color: var(--gold);
@@ -932,4 +938,167 @@
   color: #ffffff;
   border-color: var(--gold);
   transform: scale(1.08);
+}
+
+.lk-acadbar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.8rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--line);
+}
+
+.lk-acadbar p {
+  margin: 0;
+}
+
+.lk-acadbar strong {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.lk-acadbar span {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.lk-faculty {
+  background: #fff;
+  border-top: 1px solid var(--line);
+}
+
+.lk-faculty__grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.lk-faculty img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  object-position: 42% 12%;
+}
+
+.lk-faculty__role {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 0.5rem;
+}
+
+.lk-faculty__tag {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--ink);
+  margin: 0 0 1rem;
+}
+
+.lk-faculty__points {
+  margin: 1.2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lk-faculty__points li {
+  position: relative;
+  padding: 0.4rem 0 0.4rem 1.2rem;
+  color: var(--muted);
+}
+
+.lk-faculty__points li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+.lk-syllabus {
+  background: var(--paper);
+}
+
+.lk-syllabus .ac-lead {
+  margin-inline: auto;
+}
+
+.lk-syllabus__steps {
+  list-style: none;
+  margin: 0 0 2.4rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+
+.lk-syllabus__steps li {
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 1.2rem 1.1rem;
+}
+
+.lk-syllabus__steps strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin-bottom: 0.45rem;
+}
+
+.lk-syllabus__steps span {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.lk-syllabus__table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.lk-syllabus__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.lk-syllabus__table caption {
+  caption-side: top;
+  text-align: left;
+  padding: 0.9rem 1.1rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid var(--line);
+}
+
+.lk-syllabus__table th,
+.lk-syllabus__table td {
+  padding: 0.85rem 1.1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(26, 23, 20, 0.08);
+}
+
+.lk-syllabus__table th {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8a8178;
+  font-weight: 500;
+}
+
+.lk-syllabus__table tbody tr:last-child td {
+  border-bottom: 0;
 }

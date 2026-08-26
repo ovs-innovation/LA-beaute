@@ -82,7 +82,7 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: 42% 18%;
   transform: none;
 }
 
@@ -194,7 +194,7 @@ img {
 }
 
 .lux-about__main img {
-  object-position: 55% 20%;
+  object-position: 40% 12%;
 }
 
 .lux-about__inset {
@@ -210,7 +210,7 @@ img {
 }
 
 .lux-about__inset img {
-  object-position: center 20%;
+  object-position: 42% 8%;
 }
 
 .lux-about__copy h2 {
@@ -225,7 +225,19 @@ img {
   font-size: 0.78rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.55rem;
+}
+
+.lux-about__tag {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--ink) !important;
+  max-width: 28rem;
+  margin: 0 0 1.15rem;
 }
 
 .lux-about__copy > p {
@@ -624,6 +636,14 @@ img {
   .lux-about__inset {
     width: 46%;
     height: 190px;
+  }
+
+  .lux-hero__img {
+    object-position: 38% 16%;
+  }
+
+  .lux-about__main img {
+    object-position: 38% 10%;
   }
 
   .lux-split__main {
