@@ -50,20 +50,37 @@
     });
   });
 
-  function bindForm(id) {
+  const WA_NUMBER = "917007424711";
+
+  function openWhatsApp(text) {
+    const url = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(text);
+    const popup = window.open(url, "_blank", "noopener,noreferrer");
+    if (!popup) window.location.href = url;
+  }
+
+  function bindForm(id, title) {
     const form = document.getElementById(id);
     if (!form) return;
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       const data = Object.fromEntries(new FormData(form));
       if (!data.name || !data.phone) return;
-      form.reset();
+      const lines = [
+        "Hello LA BEAUTÉ Academy,",
+        title,
+        "",
+        "Name: " + data.name.trim(),
+        "Phone: " + data.phone.trim()
+      ];
+      if (data.course) lines.push("Course: " + data.course);
+      if (data.batch) lines.push("Batch: " + data.batch);
+      openWhatsApp(lines.join("\n"));
       const ok = form.querySelector(".lk-ok");
       if (ok) ok.hidden = false;
     });
   }
-  bindForm("demoForm");
-  bindForm("counselForm");
+  bindForm("demoForm", "I want a free demo class / course enquiry from the website.");
+  bindForm("counselForm", "I want free career counselling from the website.");
 
   /* ------------------------------------------
      Transformations Slider

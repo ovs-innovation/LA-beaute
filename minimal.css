@@ -608,24 +608,27 @@ img {
 
 @media (max-width: 980px) {
   .lux-strip,
-  .lux-featured__grid,
   .lux-about,
   .lux-split,
   .lux-split--flip,
-  .lux-gallery__grid,
   .lux-visit,
   .footer__grid {
     grid-template-columns: 1fr !important;
   }
 
+  .lux-featured__grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
   .lux-tile,
   .lux-tile--tall {
-    min-height: 380px;
+    min-height: 320px;
   }
 
   .lux-about__photos,
   .lux-split__photos {
     min-height: 420px;
+    padding-bottom: 2.5rem;
   }
 
   .lux-about__main {
@@ -636,6 +639,15 @@ img {
   .lux-about__inset {
     width: 46%;
     height: 190px;
+  }
+
+  .lux-hero {
+    min-height: min(100dvh, 760px);
+  }
+
+  .lux-hero h1 {
+    font-size: clamp(2.2rem, 11vw, 4.2rem);
+    letter-spacing: 0.08em;
   }
 
   .lux-hero__img {
@@ -657,18 +669,22 @@ img {
     bottom: -0.8rem;
   }
 
-  .lux-visit__photo {
-    min-height: 360px;
+  .lux-visit__photo,
+  .lux-map {
+    min-height: 280px;
+    height: 280px;
   }
 
   .lux-visit__panel {
-    padding: 2rem 1.4rem 3rem;
+    padding: 2rem 1.2rem 2.5rem;
   }
 
   .lux-hero__copy,
   .lux-bridal__copy {
-    padding-left: 1.4rem;
-    padding-right: 1.4rem;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+    padding-bottom: 5vh;
+    max-width: 100%;
   }
 
   .lux-gallery__grid {
@@ -677,6 +693,98 @@ img {
 
   .lux-quote {
     flex-direction: column;
+    text-align: center;
+  }
+
+  .lux-form .btn {
+    width: 100%;
+    align-self: stretch;
+  }
+
+  .lux-bridal {
+    height: auto;
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 560px) {
+  .lux-featured__grid,
+  .lux-gallery__grid,
+  .lux-strip {
+    grid-template-columns: 1fr !important;
+  }
+
+  .lux-strip p {
+    border-right: 0;
+    border-bottom: 1px solid rgba(176, 141, 87, 0.2);
+    padding: 1.1rem 1rem;
+  }
+
+  .lux-about,
+  .lux-featured,
+  .lux-split,
+  .lux-gallery {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .lux-about {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    gap: 2rem;
+  }
+
+  .lux-about__photos {
+    min-height: 0;
+    padding-bottom: 0;
+    display: grid;
+    gap: 0.7rem;
+  }
+
+  .lux-about__main,
+  .lux-about__inset {
+    position: relative;
+    width: 100%;
+    height: auto;
+    right: auto;
+    bottom: auto;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .lux-about__main {
+    aspect-ratio: 4 / 5;
+    height: auto;
+    max-height: 420px;
+  }
+
+  .lux-about__inset {
+    aspect-ratio: 4 / 3;
+    height: auto;
+    max-height: 220px;
+  }
+
+  .lux-tile {
+    min-height: 280px;
+  }
+
+  .lux-tile strong {
+    font-size: 1.55rem;
+  }
+
+  .lux-form input,
+  .lux-form select,
+  .lux-form textarea {
+    font-size: 16px;
+  }
+
+  .lux-hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .lux-hero__actions .btn {
+    width: 100%;
     text-align: center;
   }
 }
@@ -739,7 +847,7 @@ img {
 
 .lux-offers__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 380px));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   justify-content: center;
   gap: 1.5rem;
   max-width: 1240px;
@@ -871,16 +979,26 @@ img {
 
 @media (max-width: 1024px) {
   .lux-offers__grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lux-offer-card {
+    max-width: none;
   }
 }
 
 @media (max-width: 768px) {
   .lux-offers {
-    padding: 3.5rem 1.1rem;
+    padding: 3rem 1rem;
   }
+
   .lux-offers__grid {
     grid-template-columns: 1fr;
+  }
+
+  .lux-tab-btn {
+    font-size: 0.7rem;
+    padding: 0.45rem 0.85rem;
   }
 }
 

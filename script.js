@@ -414,8 +414,16 @@
     });
   });
 
+  const WA_NUMBER = "917007424711";
+
+  function openWhatsApp(text) {
+    const url = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(text);
+    const popup = window.open(url, "_blank", "noopener,noreferrer");
+    if (!popup) window.location.href = url;
+  }
+
   /* ------------------------------------------
-     Appointment Form Validation
+     Appointment Form → WhatsApp
      ------------------------------------------ */
   const form = $("#appointmentForm");
   const success = $("#formSuccess");
@@ -447,13 +455,24 @@
       if (message) valid = false;
     });
     if (!valid) return;
-    form.reset();
-    if (success) {
-      success.hidden = false;
-      setTimeout(() => {
-        success.hidden = true;
-      }, 5000);
-    }
+
+    const serviceEl = form.elements.service;
+    const serviceLabel = serviceEl.options[serviceEl.selectedIndex]?.text || serviceEl.value;
+
+    openWhatsApp(
+      [
+        "Hello LA BEAUTÉ,",
+        "I would like to book / enquire from the website.",
+        "",
+        "Name: " + form.elements.name.value.trim(),
+        "Phone: " + form.elements.phone.value.trim(),
+        "Email: " + form.elements.email.value.trim(),
+        "Service: " + serviceLabel,
+        "Message: " + form.elements.message.value.trim()
+      ].join("\n")
+    );
+
+    if (success) success.hidden = false;
   });
 
   form &&
