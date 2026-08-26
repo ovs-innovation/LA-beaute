@@ -13,9 +13,16 @@ body {
 }
 
 .header {
-  background: #f6f3ee;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #ffffff;
   backdrop-filter: none;
   border-bottom: 1px solid rgba(176, 141, 87, 0.22);
+}
+
+.header.is-solid {
+  background: #ffffff;
 }
 
 .lux-kicker {

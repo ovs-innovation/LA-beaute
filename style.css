@@ -452,9 +452,13 @@ h4 {
   top: 0;
   z-index: 100;
   height: var(--header-h);
-  background: #fff;
+  background: #ffffff;
   border-bottom: 1px solid var(--border);
   overflow: visible;
+}
+
+.header.is-solid {
+  background: #ffffff;
 }
 
 .header .nav-toggle span {
@@ -2161,11 +2165,25 @@ h4 {
 
 .footer__bottom {
   margin-top: 3.4rem;
-  padding: 1.3rem 0;
+  padding: 1.3rem 1rem;
   border-top: 1px solid var(--border);
   text-align: center;
   color: var(--text-muted);
   font-size: 0.82rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem 1.2rem;
+}
+
+.footer__bottom a {
+  color: var(--ink, #1a1714);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer__bottom a:hover {
+  color: var(--gold, #b08d57);
 }
 
 /* ============================================
