@@ -19,10 +19,12 @@ body {
   background: #ffffff;
   backdrop-filter: none;
   border-bottom: 1px solid rgba(176, 141, 87, 0.22);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
 }
 
 .header.is-solid {
   background: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
 }
 
 .lux-kicker {
