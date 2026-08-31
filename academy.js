@@ -104,6 +104,94 @@
     nextBtn.addEventListener("click", () => showSlide(currentIndex + 1));
   }
 
+  /* ------------------------------------------
+     Syllabus Tab Switching
+     ------------------------------------------ */
+  const tabBtns = $$(".lk-tab-btn");
+  const tabPanels = $$(".lk-tab-panel");
+
+  tabBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const targetId = btn.getAttribute("aria-controls");
+      tabBtns.forEach((b) => {
+        b.classList.remove("is-active");
+        b.setAttribute("aria-selected", "false");
+      });
+      tabPanels.forEach((p) => {
+        p.classList.remove("is-active");
+        p.hidden = true;
+      });
+
+      btn.classList.add("is-active");
+      btn.setAttribute("aria-selected", "true");
+      const targetPanel = document.getElementById(targetId);
+      if (targetPanel) {
+        targetPanel.classList.add("is-active");
+        targetPanel.hidden = false;
+      }
+    });
+  });
+
+  /* ------------------------------------------
+     View All / Close Courses Toggle
+     ------------------------------------------ */
+  const btnViewAll = $("#btnViewAllCourses");
+  const viewAllWrap = $("#viewAllCoursesWrap");
+  const btnCloseBottom = $("#btnCloseCoursesBottom");
+  const closeBottomWrap = $("#closeCoursesBottomWrap");
+
+  function expandCourses() {
+    const hiddenCourses = $$(".lk-course-collapsible");
+    hiddenCourses.forEach((c) => {
+      c.removeAttribute("hidden");
+      c.hidden = false;
+      c.classList.add("is-revealed");
+    });
+    if (viewAllWrap) {
+      viewAllWrap.setAttribute("hidden", "true");
+      viewAllWrap.hidden = true;
+      viewAllWrap.style.display = "none";
+    }
+    if (closeBottomWrap) {
+      closeBottomWrap.removeAttribute("hidden");
+      closeBottomWrap.hidden = false;
+      closeBottomWrap.style.display = "flex";
+    }
+  }
+
+  function collapseCourses() {
+    const hiddenCourses = $$(".lk-course-collapsible");
+    hiddenCourses.forEach((c) => {
+      c.setAttribute("hidden", "true");
+      c.hidden = true;
+      c.classList.remove("is-revealed");
+    });
+    if (closeBottomWrap) {
+      closeBottomWrap.setAttribute("hidden", "true");
+      closeBottomWrap.hidden = true;
+      closeBottomWrap.style.display = "none";
+    }
+    if (viewAllWrap) {
+      viewAllWrap.removeAttribute("hidden");
+      viewAllWrap.hidden = false;
+      viewAllWrap.style.display = "flex";
+    }
+
+    // Smooth scroll back to Courses section top
+    const coursesSection = document.getElementById("courses") || document.getElementById("prospectus");
+    if (coursesSection) {
+      coursesSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  if (btnViewAll) {
+    btnViewAll.addEventListener("click", expandCourses);
+  }
+
+  if (btnCloseBottom) {
+    btnCloseBottom.addEventListener("click", collapseCourses);
+  }
+
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeMenu();
   });
