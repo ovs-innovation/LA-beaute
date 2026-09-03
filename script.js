@@ -10,6 +10,7 @@
   const header = $("#header");
   const navToggle = $("#navToggle");
   const navMenu = $("#navMenu");
+  const navClose = $("#navClose");
   const progress = $("#scrollProgress");
   const loader = $("#loader");
   const backToTop = $("#backToTop");
@@ -92,8 +93,14 @@
     document.body.style.overflow = "hidden";
   }
 
-  navToggle?.addEventListener("click", () => {
+  navToggle?.addEventListener("click", (e) => {
+    e.stopPropagation();
     navMenu?.classList.contains("is-open") ? closeMenu() : openMenu();
+  });
+
+  navClose?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    closeMenu();
   });
 
   $$(".nav__link, .nav__actions .btn").forEach((el) => {

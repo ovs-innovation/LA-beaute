@@ -18,22 +18,40 @@
 
   const navToggle = $("#navToggle");
   const navMenu = $("#navMenu");
+  const navClose = $("#navClose");
+
   function closeMenu() {
     navMenu?.classList.remove("is-open");
     navToggle?.classList.remove("is-open");
     navToggle?.setAttribute("aria-expanded", "false");
+    navToggle?.setAttribute("aria-label", "Open menu");
     document.body.style.overflow = "";
   }
-  navToggle?.addEventListener("click", () => {
+
+  function openMenu() {
+    navMenu?.classList.add("is-open");
+    navToggle?.classList.add("is-open");
+    navToggle?.setAttribute("aria-expanded", "true");
+    navToggle?.setAttribute("aria-label", "Close menu");
+    document.body.style.overflow = "hidden";
+  }
+
+  navToggle?.addEventListener("click", (e) => {
+    e.stopPropagation();
     if (navMenu?.classList.contains("is-open")) closeMenu();
-    else {
-      navMenu?.classList.add("is-open");
-      navToggle.classList.add("is-open");
-      navToggle.setAttribute("aria-expanded", "true");
-      document.body.style.overflow = "hidden";
-    }
+    else openMenu();
   });
-  $$(".nav__link").forEach((el) => el.addEventListener("click", closeMenu));
+
+  navClose?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    closeMenu();
+  });
+
+  $$(".nav__link, .nav__actions .btn").forEach((el) => el.addEventListener("click", closeMenu));
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
 
   $$(".ac-faq__item").forEach((item) => {
     const btn = $(".ac-faq__btn", item);

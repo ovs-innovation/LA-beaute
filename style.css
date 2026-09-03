@@ -552,31 +552,44 @@ h4 {
   height: 44px;
   position: relative;
   z-index: 10050;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }
 
 .nav-toggle span {
   position: absolute;
-  left: 10px;
-  right: 10px;
-  height: 1.5px;
-  background: var(--text);
+  left: 9px;
+  right: 9px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--text, #141414);
   transition:
     transform 0.35s var(--ease),
-    opacity 0.35s;
+    opacity 0.35s ease,
+    background-color 0.35s ease;
 }
 
 .nav-toggle span:nth-child(1) {
-  top: 15px;
+  top: 14px;
 }
 .nav-toggle span:nth-child(2) {
   top: 21px;
 }
 .nav-toggle span:nth-child(3) {
-  top: 27px;
+  top: 28px;
 }
 
 .nav-toggle.is-open span:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
+  transform: translateY(7px) rotate(45deg);
 }
 
 .nav-toggle.is-open span:nth-child(2) {
@@ -584,11 +597,11 @@ h4 {
 }
 
 .nav-toggle.is-open span:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 .nav-close {
-  display: none;
+  display: none !important;
 }
 
 /* ============================================
@@ -2035,9 +2048,14 @@ h4 {
 }
 
 .form-error {
-  min-height: 1.1em;
-  color: #ff8a8a;
-  font-size: 0.75rem;
+  min-height: 0;
+  color: #d93838;
+  font-size: 0.72rem;
+  line-height: 1.2;
+}
+
+.form-error:empty {
+  display: none;
 }
 
 .form-success {
@@ -2590,21 +2608,29 @@ h4 {
   }
 
   .nav__panel {
-    inset: 0;
-    z-index: 10040;
-    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
     height: 100vh;
     height: 100dvh;
+    z-index: 10040;
     margin: 0;
-    padding: 5rem 1.5rem 2rem;
+    padding: 6rem 2rem 3rem;
     background: #ffffff;
+    display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
-    gap: 2.4rem;
+    gap: 2rem;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.35s ease, visibility 0.35s;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
   }
 
   .nav__panel.is-open {
@@ -2613,35 +2639,42 @@ h4 {
     pointer-events: auto;
   }
 
-  .nav-close {
-    display: grid;
-    place-items: center;
-    position: absolute;
-    top: max(1rem, env(safe-area-inset-top));
-    right: 1rem;
-    z-index: 2;
-    width: 48px;
-    height: 48px;
-    border: 0;
-    background: none;
-    color: #1a1714;
-    font-size: 2.4rem;
-    line-height: 1;
-    cursor: pointer;
-  }
-
   .nav__list {
+    display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    align-items: center;
+    gap: 1.4rem;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
 
   .nav__link {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #1a1714;
+    padding: 0.5rem 1rem;
+    display: block;
+    text-align: center;
   }
 
   .nav__actions {
+    display: flex;
     flex-direction: column;
+    align-items: center;
     width: min(280px, 80%);
+    margin-top: 0.5rem;
+  }
+
+  .nav__actions .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    padding: 0.85rem 1.8rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -2654,67 +2687,6 @@ h4 {
     width: auto;
     height: 58px;
     max-width: 140px;
-  }
-
-  .nav-toggle {
-    display: block;
-  }
-
-  .nav__panel {
-    inset: 0;
-    z-index: 10040;
-    width: 100%;
-    height: 100vh;
-    height: 100dvh;
-    margin: 0;
-    padding: 5rem 1.5rem 2rem;
-    background: #ffffff;
-    flex-direction: column;
-    justify-content: center;
-    gap: 2.4rem;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition:
-      opacity 0.35s ease,
-      visibility 0.35s;
-  }
-
-  .nav__panel.is-open {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-  }
-
-  .nav-close {
-    display: grid;
-    place-items: center;
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    z-index: 2;
-    width: 48px;
-    height: 48px;
-    border: 0;
-    background: none;
-    color: #1a1714;
-    font-size: 2.4rem;
-    line-height: 1;
-    cursor: pointer;
-  }
-
-  .nav__list {
-    flex-direction: column;
-    gap: 1.2rem;
-  }
-
-  .nav__link {
-    font-size: 1.1rem;
-  }
-
-  .nav__actions {
-    flex-direction: column;
-    width: min(280px, 80%);
   }
 
   .hero__title {

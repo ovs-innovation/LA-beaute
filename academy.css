@@ -120,24 +120,35 @@
 }
 
 .lk-form label {
-  display: grid;
-  gap: 0.3rem;
-  font-size: 0.68rem;
-  letter-spacing: 0.12em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #8a8178;
+  font-weight: 500;
 }
 
 .lk-form input,
 .lk-form select {
+  width: 100%;
   border: 0;
-  border-bottom: 1px solid rgba(26, 23, 20, 0.16);
+  border-bottom: 1px solid rgba(26, 23, 20, 0.2);
+  border-radius: 0;
   background: transparent;
-  padding: 0.55rem 0;
+  padding: 0.38rem 0;
   color: var(--ink);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   text-transform: none;
   letter-spacing: 0;
+  transition: border-color 0.25s ease;
+}
+
+.lk-form input:focus,
+.lk-form select:focus {
+  outline: none;
+  border-bottom-color: var(--gold);
 }
 
 .lk-ok {
@@ -165,7 +176,7 @@
 }
 
 .lk-courses .ac-wrap {
-  width: min(1440px, calc(100% - 3rem));
+  width: min(1060px, calc(100% - 2rem));
   max-width: 100%;
 }
 
@@ -186,7 +197,7 @@
   direction: rtl;
 }
 
-.lk-course--flip>* {
+.lk-course--flip > * {
   direction: ltr;
 }
 
@@ -378,50 +389,76 @@
 }
 
 @media (max-width: 900px) {
-
   .lk-hero__grid,
   .lk-about,
   .lk-faculty__grid,
-  .lk-acadbar,
   .lk-syllabus__steps,
   .lk-course,
   .lk-course--flip,
   .lk-help__grid,
   .lk-quotes,
-  .lk-work,
   .lk-course ul,
   .academy-page .footer__grid {
     grid-template-columns: 1fr !important;
     direction: ltr;
   }
 
+  .lk-acadbar {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.6rem;
+    background: #ffffff;
+    padding: 0.9rem 0.8rem;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    text-align: center;
+  }
+
+  .lk-work {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.6rem;
+  }
+
   .lk-hero {
     background-image: none;
     background-color: var(--paper);
+    padding: 2.2rem 0 3rem;
   }
 
   .lk-about img,
   .lk-faculty img,
   .lk-course img {
-    height: 240px;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    max-height: 360px;
+    border-radius: 10px;
+    width: 100%;
+    object-fit: cover;
   }
 
-  .lk-hero {
-    padding: 2rem 0 2.5rem;
+  .lk-work img {
+    height: auto;
+    aspect-ratio: 4 / 3;
+    max-height: 240px;
+    border-radius: 8px;
   }
 
   .lk-hero h1 {
-    font-size: clamp(1.85rem, 8vw, 2.8rem);
+    font-size: clamp(1.85rem, 7vw, 2.8rem);
   }
 
   .lk-form {
-    padding: 1.2rem 1rem 1.2rem;
+    padding: 1.3rem 1.2rem;
+    gap: 0.6rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
   }
 
   .lk-form .btn,
   .lk-who__action .btn,
   .lk-stars__action .btn {
     width: 100%;
+    text-align: center;
+    justify-content: center;
   }
 
   .lk-syllabus__table th,
@@ -431,21 +468,26 @@
   }
 
   .lk-transform__slide img {
-    height: 220px;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    max-height: 320px;
+    object-fit: cover;
   }
 
   .lk-transform__nav {
-    top: 110px;
-    width: 38px;
-    height: 38px;
+    top: 45%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
   }
 
   .ac-section {
-    padding: 3.2rem 0;
+    padding: 3rem 0;
   }
 
   .lk-map {
-    height: 240px;
+    height: 260px;
+    border-radius: 8px;
   }
 }
 
@@ -859,8 +901,22 @@
 
 @media (max-width: 600px) {
   .lk-stars__grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+
+  .lk-star-card {
+    padding: 1.05rem 0.75rem;
+  }
+
+  .lk-star-card__avatar {
+    width: 68px;
+    height: 68px;
+    margin: 0.6rem auto;
+  }
+
+  .lk-star-card__congrats {
+    font-size: 1.15rem;
   }
 }
 
@@ -1182,12 +1238,15 @@
 .lk-course--featured {
   display: block;
   width: 100%;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
   box-sizing: border-box;
   background: #ffffff;
   border: 1px solid var(--gold);
   border-radius: 10px;
-  padding: 1.25rem 1.5rem;
-  margin-bottom: 1.6rem;
+  padding: 1.4rem 1.65rem;
+  margin-bottom: 2rem;
   box-shadow: 0 6px 20px rgba(176, 141, 87, 0.06);
 }
 
@@ -1207,7 +1266,7 @@
 }
 
 .lk-syll-group--2col {
-  grid-template-columns: repeat(2, 1fr) !important;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .lk-featured__title {
@@ -1262,14 +1321,23 @@
 
 .lk-featured__media {
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 8px;
 }
 
 .lk-featured__media img {
   width: 100%;
-  height: 155px;
+  max-width: 100%;
+  min-width: 100%;
+  height: 180px;
   object-fit: cover;
-  border-radius: 6px;
+  object-position: center 25%;
+  border-radius: 8px;
   margin-bottom: 0;
+  display: block;
+  box-sizing: border-box;
 }
 
 .lk-featured__content {
@@ -1551,45 +1619,8 @@
   font-weight: bold;
 }
 
-/* Responsive adjustments for featured course card */
-@media (max-width: 1200px) {
-  .lk-syll-group {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .lk-levels-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 900px) {
-  .lk-featured__body {
-    grid-template-columns: 1fr;
-  }
-
-  .lk-syll-group {
-    grid-template-columns: 1fr;
-  }
-
-  .lk-levels-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 600px) {
-  .lk-course--featured {
-    padding: 1rem;
-  }
-
-  .lk-tabs-nav {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    padding-bottom: 0.35rem;
-  }
-}
-
 /* ------------------------------------------
-   Full-Width Bottom Flex Fee Section (Compact)
+   Full-Width Bottom Flex Fee Section (Compact Base Rules)
    ------------------------------------------ */
 .lk-featured__footer {
   grid-column: 1 / -1;
@@ -1597,6 +1628,7 @@
   border-top: 1px dashed var(--line);
   padding-top: 0.85rem;
   margin-top: 0.85rem;
+  box-sizing: border-box;
 }
 
 .lk-fee-footer__title {
@@ -1610,18 +1642,22 @@
 .lk-fee-flex {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0.85rem;
   margin-bottom: 0.6rem;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .lk-fee-card {
-  flex: 1 1 200px;
-  min-width: 190px;
+  flex: 0 1 480px;
+  max-width: 480px;
+  width: 100%;
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: 6px;
-  padding: 0.65rem 0.85rem;
+  padding: 0.75rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1677,6 +1713,7 @@
   border: 1px solid rgba(176, 141, 87, 0.15);
   border-radius: 4px;
   font-size: 0.78rem;
+  word-break: break-word;
 }
 
 .lk-fee-row span {
@@ -1712,8 +1749,29 @@
 
 .lk-fee-action {
   display: flex;
-  justify-content: flex-end;
-  margin-top: 0.6rem;
+  justify-content: center;
+  margin-top: 0.85rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.lk-fee-action .btn,
+.lk-course .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: auto;
+  max-width: 90%;
+  padding: 0.55rem 1.25rem;
+  box-sizing: border-box;
+  white-space: normal;
+  word-break: break-word;
+  letter-spacing: 0.06em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-radius: 4px;
+  text-transform: uppercase;
 }
 
 /* View All Courses Button Wrapper */
@@ -1758,9 +1816,238 @@
     opacity: 0;
     transform: translateY(15px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* ------------------------------------------
+   Responsive Media Overrides (Applied After Base Rules)
+   ------------------------------------------ */
+@media (max-width: 1200px) {
+  .lk-syll-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .lk-levels-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .lk-course--featured,
+  .lk-course {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .lk-featured__body {
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  .lk-featured__body > * {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .lk-featured__content {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+  
+  .lk-syll-group,
+  .lk-syll-group--2col,
+  .lk-levels-grid {
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .lk-featured__media {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .lk-featured__media img {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+    height: 200px !important;
+    object-fit: cover !important;
+    object-position: center 25% !important;
+    border-radius: 8px !important;
+    display: block !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .lk-course--featured {
+    padding: 0.9rem 0.75rem !important;
+    overflow: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .lk-featured__header,
+  .lk-featured__body,
+  .lk-featured__content,
+  .lk-tab-panel,
+  .lk-featured__footer {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .lk-featured__media {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 0 0.85rem 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .lk-featured__media img {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+    height: 180px !important;
+    object-fit: cover !important;
+    object-position: center 25% !important;
+    border-radius: 8px !important;
+    display: block !important;
+  }
+
+  .lk-featured__title {
+    font-size: 1.05rem !important;
+    line-height: 1.3 !important;
+    word-break: break-word !important;
+  }
+
+  .lk-featured__lead {
+    font-size: 0.8rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .lk-featured__meta-bar {
+    gap: 0.35rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .lk-meta-tag {
+    font-size: 0.7rem !important;
+    padding: 0.2rem 0.5rem !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+  
+  .lk-tabs-nav {
+    display: flex !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    padding-bottom: 0.4rem !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    box-sizing: border-box !important;
+  }
+
+  .lk-tabs-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .lk-tab-btn {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  .lk-fee-flex {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .lk-fee-card {
+    flex: 1 1 100% !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .lk-fee-action {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin-top: 0.85rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .lk-fee-action .btn,
+  .lk-course .btn {
+    display: inline-flex !important;
+    width: auto !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    text-align: center !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0.6rem 0.85rem !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.04em !important;
+    box-sizing: border-box !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    text-transform: uppercase !important;
+    border-radius: 4px !important;
+  }
+
+  .lk-view-all-courses-wrap {
+    padding: 0 0.5rem !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .lk-view-all-courses-wrap .btn--lg {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0.8rem 0.5rem !important;
+    font-size: 0.85rem !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+    white-space: normal !important;
+    word-break: break-word !important;
   }
 }
