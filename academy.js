@@ -123,30 +123,34 @@
   }
 
   /* ------------------------------------------
-     Syllabus Tab Switching
+     Syllabus Tab Switching (Scoped per Course Card)
      ------------------------------------------ */
-  const tabBtns = $$(".lk-tab-btn");
-  const tabPanels = $$(".lk-tab-panel");
+  $$(".lk-tabs-nav").forEach((nav) => {
+    const container = nav.closest(".lk-featured__content") || nav.closest(".lk-course") || nav.parentElement;
+    if (!container) return;
+    const btns = Array.from(nav.querySelectorAll(".lk-tab-btn"));
+    const panels = Array.from(container.querySelectorAll(".lk-tab-panel"));
 
-  tabBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const targetId = btn.getAttribute("aria-controls");
-      tabBtns.forEach((b) => {
-        b.classList.remove("is-active");
-        b.setAttribute("aria-selected", "false");
-      });
-      tabPanels.forEach((p) => {
-        p.classList.remove("is-active");
-        p.hidden = true;
-      });
+    btns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const targetId = btn.getAttribute("aria-controls");
+        btns.forEach((b) => {
+          b.classList.remove("is-active");
+          b.setAttribute("aria-selected", "false");
+        });
+        panels.forEach((p) => {
+          p.classList.remove("is-active");
+          p.hidden = true;
+        });
 
-      btn.classList.add("is-active");
-      btn.setAttribute("aria-selected", "true");
-      const targetPanel = document.getElementById(targetId);
-      if (targetPanel) {
-        targetPanel.classList.add("is-active");
-        targetPanel.hidden = false;
-      }
+        btn.classList.add("is-active");
+        btn.setAttribute("aria-selected", "true");
+        const targetPanel = container.querySelector("#" + targetId) || document.getElementById(targetId);
+        if (targetPanel) {
+          targetPanel.classList.add("is-active");
+          targetPanel.hidden = false;
+        }
+      });
     });
   });
 
