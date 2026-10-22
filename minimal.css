@@ -1324,3 +1324,60 @@ img {
   box-shadow: 0 8px 20px rgba(176, 141, 87, 0.25);
 }
 
+/* Instagram link and button styles */
+.lux-visit__contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.75rem;
+  margin-bottom: 0.45rem;
+  font-size: 0.94rem;
+}
+
+.lux-visit__contact .sep {
+  color: rgba(26, 23, 20, 0.3);
+}
+
+.lux-insta-link,
+.footer__insta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  color: #c13584 !important;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.lux-insta-link svg,
+.footer__insta svg {
+  color: #c13584;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.lux-insta-link:hover,
+.footer__insta:hover {
+  color: #e1306c !important;
+}
+
+.lux-insta-link:hover svg,
+.footer__insta:hover svg {
+  transform: scale(1.12);
+}
+
+.float-btn--insta {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  color: #ffffff;
+}
+
+.float-btn--insta svg {
+  width: 22px;
+  height: 22px;
+  stroke: #ffffff;
+}
+
+.float-btn--insta:hover {
+  transform: translateY(-3px) scale(1.06);
+}
+
