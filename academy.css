@@ -103,6 +103,230 @@
   color: var(--gold);
 }
 
+.lk-hero__subhead {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 1.25rem 0 0.55rem;
+  letter-spacing: 0.01em;
+}
+
+.lk-hero__courses {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.lk-hero__courses li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.94rem;
+  color: #3f3933;
+}
+
+.lk-hero__courses li::before {
+  display: none !important;
+}
+
+.lk-course-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: rgba(176, 141, 87, 0.12);
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.lk-hero__courses strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.lk-hero__tag {
+  color: var(--gold);
+  font-weight: 500;
+  font-size: 0.85rem;
+  margin-left: 0.25rem;
+}
+
+.lk-hero__why {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.lk-hero__why li {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.94rem;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.lk-why-icon {
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  margin-left: auto;
+  opacity: 0.85;
+}
+
+.lk-hero__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(176, 141, 87, 0.15);
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.lk-hero__quote {
+  font-size: 0.92rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: #4a453f;
+  margin: 1.1rem 0 1.15rem;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--gold);
+}
+
+.lk-hero__quote strong {
+  font-weight: 600;
+  color: var(--ink);
+  font-style: normal;
+}
+
+.lk-hero__form-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.lk-admission-banner {
+  position: relative;
+  background: linear-gradient(135deg, #ffffff 0%, #fbf8f2 100%);
+  border: 1.5px solid var(--gold);
+  border-radius: 8px;
+  padding: 1.25rem 1.35rem;
+  box-shadow: 0 10px 28px rgba(176, 141, 87, 0.16);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.lk-admission-banner:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(176, 141, 87, 0.22);
+}
+
+.lk-admission-banner__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lk-admission-banner__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  color: #8c6424;
+  background: rgba(176, 141, 87, 0.15);
+  padding: 0.22rem 0.6rem;
+  border-radius: 99px;
+  text-transform: uppercase;
+}
+
+.lk-admission-banner__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #b08d57;
+  box-shadow: 0 0 0 0 rgba(176, 141, 87, 0.7);
+  animation: lkPulseDot 2s infinite;
+}
+
+@keyframes lkPulseDot {
+  0% { box-shadow: 0 0 0 0 rgba(176, 141, 87, 0.7); }
+  70% { box-shadow: 0 0 0 6px rgba(176, 141, 87, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(176, 141, 87, 0); }
+}
+
+.lk-admission-banner__alert {
+  font-size: 0.72rem;
+  color: var(--gold);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.lk-admission-banner__title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.28;
+  color: var(--ink);
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+.lk-admission-banner__title .bullet {
+  color: var(--gold);
+  font-size: 1.15rem;
+  margin-right: 0.25rem;
+}
+
+.lk-admission-banner__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 1.1rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(176, 141, 87, 0.22);
+}
+
+.lk-admission-banner__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: #554e47;
+  font-weight: 500;
+}
+
+.lk-admission-banner__item svg {
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.btn--whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+}
+
 .lk-form {
   background: #fff;
   border: 1px solid var(--line);
@@ -128,6 +352,22 @@
   text-transform: uppercase;
   color: #8a8178;
   font-weight: 500;
+}
+
+.lk-form__label-head {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8a8178;
+  font-weight: 600;
+}
+
+.lk-form__label-head svg {
+  color: var(--gold);
+  flex-shrink: 0;
 }
 
 .lk-form input,
