@@ -883,54 +883,6 @@ img {
   color: #1a1714;
 }
 
-.lux-loc__card-link {
-  display: inline-block;
-  color: inherit !important;
-  text-decoration: none !important;
-  transition: opacity 0.2s ease;
-}
-
-.lux-loc__card-link:hover {
-  opacity: 0.85;
-}
-
-.lux-map-open-btn {
-  position: absolute;
-  bottom: 1.2rem;
-  left: 1.2rem;
-  z-index: 5;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.65rem 1.1rem;
-  background: #ffffff;
-  color: #1a1714 !important;
-  border: 1px solid rgba(26, 23, 20, 0.15);
-  border-radius: 6px;
-  font-size: 0.84rem;
-  font-weight: 600;
-  text-decoration: none;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-  transition: all 0.2s ease;
-}
-
-.lux-map-open-btn svg {
-  color: #b08d57;
-  flex-shrink: 0;
-}
-
-.lux-map-open-btn:hover {
-  background: #1a1714;
-  color: #ffffff !important;
-  border-color: #1a1714;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-  transform: translateY(-2px);
-}
-
-.lux-map-open-btn:hover svg {
-  color: #ffffff;
-}
-
 .footer__addr-item {
   display: flex !important;
   align-items: flex-start !important;
