@@ -421,7 +421,7 @@
     });
   });
 
-  const WA_NUMBER = "917007424711";
+  const WA_NUMBER = "918721118718";
 
   function openWhatsApp(text) {
     const url = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(text);

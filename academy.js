@@ -68,7 +68,7 @@
     });
   });
 
-  const WA_NUMBER = "917007424711";
+  const WA_NUMBER = "918721118718";
 
   function openWhatsApp(text) {
     const url = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(text);
@@ -214,7 +214,91 @@
     btnCloseBottom.addEventListener("click", collapseCourses);
   }
 
+  /* ============================================================
+     Continuous Campus & Studio Gallery Slider & Lightbox
+     ============================================================ */
+  const marquee = $("#galleryMarquee");
+  const marqueeToggleBtn = $("#marqueeToggleBtn");
+  const lightbox = $("#galleryLightbox");
+  const lightboxImg = $("#lightboxImg");
+  const lightboxCaption = $("#lightboxCaption");
+  const lightboxClose = $("#lightboxClose");
+
+  if (marqueeToggleBtn && marquee) {
+    marqueeToggleBtn.addEventListener("click", () => {
+      const isPaused = marquee.classList.toggle("is-paused");
+      const iconPause = marqueeToggleBtn.querySelector(".icon-pause");
+      const iconPlay = marqueeToggleBtn.querySelector(".icon-play");
+      const textSpan = marqueeToggleBtn.querySelector(".toggle-text");
+      if (iconPause && iconPlay && textSpan) {
+        if (isPaused) {
+          iconPause.style.display = "none";
+          iconPlay.style.display = "inline-block";
+          textSpan.textContent = "Resume";
+          marqueeToggleBtn.setAttribute("aria-label", "Resume continuous slider");
+        } else {
+          iconPause.style.display = "inline-block";
+          iconPlay.style.display = "none";
+          textSpan.textContent = "Pause";
+          marqueeToggleBtn.setAttribute("aria-label", "Pause continuous slider");
+        }
+      }
+    });
+  }
+
+  function openLightbox(src, caption) {
+    if (!lightbox || !lightboxImg) return;
+    lightboxImg.src = src;
+    if (lightboxCaption) lightboxCaption.textContent = caption || "";
+    lightbox.removeAttribute("hidden");
+    lightbox.hidden = false;
+    requestAnimationFrame(() => {
+      lightbox.classList.add("is-open");
+    });
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.classList.remove("is-open");
+    setTimeout(() => {
+      if (!lightbox.classList.contains("is-open")) {
+        lightbox.setAttribute("hidden", "true");
+        lightbox.hidden = true;
+        if (lightboxImg) lightboxImg.src = "";
+      }
+    }, 300);
+    document.body.style.overflow = "";
+  }
+
+  $$(".lk-marquee__card, .lk-collage__card, .lk-work__card").forEach((card) => {
+    const handleOpen = () => {
+      const src = card.getAttribute("data-src") || card.querySelector("img")?.src;
+      const caption = card.getAttribute("data-caption") || card.querySelector("img")?.alt || "";
+      if (src) openLightbox(src, caption);
+    };
+
+    card.addEventListener("click", handleOpen);
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        handleOpen();
+      }
+    });
+  });
+
+  lightboxClose?.addEventListener("click", closeLightbox);
+
+  lightbox?.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeMenu();
+    if (e.key === "Escape") {
+      closeMenu();
+      closeLightbox();
+    }
   });
 })();

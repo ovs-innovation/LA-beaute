@@ -2145,6 +2145,19 @@ h4 {
   color: var(--primary);
 }
 
+.footer__col a.footer__insta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  white-space: nowrap;
+}
+
+.footer__col a.footer__insta svg {
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .footer__news p {
   color: var(--text-secondary);
   font-size: 0.9rem;
