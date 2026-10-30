@@ -1158,7 +1158,9 @@ img {
     min-height: 0;
     padding-bottom: 0;
     display: grid;
-    gap: 0.7rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    align-items: stretch;
   }
 
   .lux-about__main,
@@ -1168,30 +1170,45 @@ img {
     height: auto;
     right: auto;
     bottom: auto;
+    border-radius: 12px;
     border: 0;
-    box-shadow: none;
+    box-shadow: 0 8px 24px rgba(26, 23, 20, 0.12);
+    overflow: hidden;
   }
 
   .lux-about__main {
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 3 / 4;
     height: auto;
-    max-height: 420px;
+    max-height: 260px;
   }
 
   .lux-about__inset {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 3 / 4;
     height: auto;
-    max-height: 220px;
+    max-height: 260px;
   }
 
   .lux-about__badge {
-    left: 0.75rem !important;
-    top: 0.75rem !important;
-    padding: 0.4rem 0.8rem !important;
+    left: 0.5rem !important;
+    top: 0.5rem !important;
+    padding: 0.3rem 0.6rem !important;
+    gap: 0.3rem !important;
+  }
+
+  .lux-about__badge-star {
+    font-size: 0.6rem !important;
   }
 
   .lux-about__badge-text {
-    font-size: 0.68rem !important;
+    font-size: 0.55rem !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  .lux-about__inset-badge {
+    font-size: 0.6rem !important;
+    padding: 0.3rem 0.55rem !important;
+    bottom: 0.5rem !important;
+    left: 0.5rem !important;
   }
 
   .lux-about__stats-grid {
